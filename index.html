@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#05030a" />
+<title>指尖绽放 · Gesture Bloom</title>
+<link rel="stylesheet" href="./style.css" />
+<!-- Three.js 已随项目放在 vendor/ 下：本地运行、无需外网 -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <div class="veil"></div>
+  <div class="grain"></div>
+
+  <header class="hud hud-top">
+    <div class="brand">
+      <span class="pulse"></span>
+      <span class="brand-text">GESTURE&nbsp;BLOOM</span>
+    </div>
+    <div class="status" id="status">
+      <i class="led" id="led"></i><span id="statusText">待机中</span>
+    </div>
+  </header>
+
+  <div class="hint" id="hint">
+    <span class="k">握拳</span> 光笼收拢
+    <span class="sep">·</span>
+    <span class="k">张开手掌</span> 星芒绽放
+  </div>
+
+  <div class="cam-card" id="camCard">
+    <video id="video" playsinline muted autoplay></video>
+    <canvas id="skeleton"></canvas>
+    <div class="cam-scan"></div>
+    <div class="cam-tag">HAND TRACKER</div>
+  </div>
+
+  <div class="meter" id="meter">
+    <div class="meter-head">
+      <span>BLOSSOM</span>
+      <span id="meterValue">0%</span>
+    </div>
+    <div class="meter-track"><i id="meterFill"></i></div>
+    <div class="meter-foot" id="fingerInfo">— 无手部信号 —</div>
+  </div>
+
+  <div class="gate" id="gate">
+    <div class="gate-inner">
+      <div class="gate-kicker">REALTIME · HAND GESTURE · PARTICLES</div>
+      <h1>指尖绽放</h1>
+      <p class="gate-desc">
+        一朵由两万六千颗余烬粒子构成的光之花。握拳时收拢成红色光笼，
+        张开手掌的瞬间，粒子向四面八方炸开成星芒。
+      </p>
+      <div class="gate-actions">
+        <button id="startBtn" class="btn primary">开启摄像头</button>
+        <button id="mouseBtn" class="btn ghost">无摄像头体验</button>
+      </div>
+      <p class="gate-note" id="gateNote">需要授予摄像头权限 · 建议在本地 HTTP 服务下运行</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
